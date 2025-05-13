@@ -1,0 +1,24 @@
+# Xcode
+build/
+DerivedData/
+*.xcuserstate
+
+# Swift Package Manager
+.build/
+Packages/
+.swiftpm/xcode/package.xcworkspace
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Build/
+
+# macOS
+.DS_Store
+
+# User-specific files
+*.swp
+*.swo
+*.log
