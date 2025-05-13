@@ -1,4 +1,4 @@
-# 💸 CheckSharingApp
+# Check Splitter
 
 CheckSharingApp is a simple SwiftUI application that helps users calculate how to split a restaurant bill, including tip, among multiple people.
 
