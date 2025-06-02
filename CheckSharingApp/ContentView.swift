@@ -36,42 +36,42 @@ struct ContentView: View {
     }
     
     var body: some View {
-        NavigationStack{
-            Form{
-                Section{
+        NavigationStack {
+            Form {
+                Section {
                     TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                         .keyboardType(.decimalPad)
                         .focused($amountIsFocused)
                     
-                    Picker("Number of people", selection: $numberOfPeople){
-                        ForEach(2..<100){
+                    Picker("Number of people", selection: $numberOfPeople) {
+                        ForEach(2..<100) {
                             Text("\($0) people")
                         }
                     }
                 }
                 
-                Section("How much tip do you want to leave?"){
-                    Picker("Tip percentage", selection: $tipPercentage){
-                        ForEach(0..<101){
+                Section("How much tip do you want to leave?") {
+                    Picker("Tip percentage", selection: $tipPercentage) {
+                        ForEach(0..<101) {
                             Text($0, format: .percent)
                         }
                     }
                     .pickerStyle(.navigationLink)
                 }
                 
-                Section("Full check"){
+                Section("Full check") {
                     Text(totalCheck, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
-
+                        .foregroundColor(tipPercentage == 0 ? .red : .primary)
                 }
                 
-                Section ("Amount per person"){
+                Section("Amount per person") {
                     Text(totalPerPerson, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                 }
             }
             .navigationTitle(Text("Check Splitter"))
-            .toolbar{
-                if amountIsFocused{
-                    Button("Done"){
+            .toolbar {
+                if amountIsFocused {
+                    Button("Done") {
                         amountIsFocused = false
                     }
                 }
